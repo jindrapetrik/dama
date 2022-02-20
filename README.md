@@ -7,7 +7,7 @@ Klasická hra Dáma. Lze hrát buď proti počítači nebo ve dvou přes síť. 
 Ke spuštění je třeba mít nainstalovanou Javu.
 Javu získáte třeba zde: https://www.java.com/download/
 
-Pokud javu máte, stačí poklepat na dama.jar a hra se spustí.
+Pokud javu máte, stačí poklepat na `dama.jar` a hra se spustí.
 
 ## Změny ve verzích
 Seznam změn je v souboru [CHANGELOG.md](CHANGELOG.md)
