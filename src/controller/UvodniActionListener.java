@@ -30,7 +30,7 @@ public class UvodniActionListener implements ActionListener {
         }
         
         if (e.getSource() == view.UvodniFrame.btnSam) {
-            ModelHry.typHry=ModelHry.TYPHRY_SAM;            
+            ModelHry.typHry=ModelHry.TYPHRY_PC;            
             View.nastaveniFrame.zobrazit();
             View.uvodniFrame.setVisible(false);
         }

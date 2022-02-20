@@ -58,7 +58,7 @@ public class Sit {
                             while(y==-1)
                               y = is.read();
                             System.out.println("Prijat TAH: ["+x+","+y+"]");
-                            boolean naTahuSit = ModelHry.hracNaTahu == cisloSitoveho;
+                            boolean naTahuSit = ModelHry.stav.hracNaTahu == cisloSitoveho;
                             if (naTahuSit) {
                                 controller.HlavniMouseAdapter.kliknutoXY(x, y);
                             }
@@ -188,8 +188,7 @@ public class Sit {
         ModelHry.typyHracu[0] = ModelHry.TYPHRACE_ZDEJSI;
         ModelHry.typyHracu[1] = ModelHry.TYPHRACE_SITOVY;
         cisloSitoveho = 1;
-        ModelHry.typHry = ModelHry.TYPHRY_SITOVA;
-        view.View.cekaciFrame.setVisible(true);
+        ModelHry.typHry = ModelHry.TYPHRY_SITOVA;        
         try {
             ssock = new ServerSocket(port);
             System.out.println("Server spusten, cekam na klienta");            
@@ -205,7 +204,7 @@ public class Sit {
             }
             System.out.println("Klient pripojen");
         } catch (Exception e) {
-           
+           return;
         }
         view.View.cekaciFrame.setVisible(false);
         if (!ModelHry.vypinani) {
@@ -237,20 +236,22 @@ public class Sit {
             Nastaveni.letajiciDamy = is.read() == 1;
         } catch (Exception e) {
             System.out.println("Nelze se pripojit");
-            System.exit(0);
+            view.View.pripojFrame.setVisible(true);
+            return;
         }
+        view.View.pripojFrame.setVisible(false);
         ModelHry.novaHra();
         cistTahy();
         startPosilani();
     }
 
     /** 
-     * spusti hru hrace samotneho
+     * spusti hru hrace proti PC
      */
-    public static void samSeSebou() {
+    public static void protiPC() {
         ModelHry.typyHracu[0] = ModelHry.TYPHRACE_ZDEJSI;
-        ModelHry.typyHracu[1] = ModelHry.TYPHRACE_ZDEJSI;
-        ModelHry.typHry = ModelHry.TYPHRY_SAM;
+        ModelHry.typyHracu[1] = ModelHry.TYPHRACE_PC;
+        ModelHry.typHry = ModelHry.TYPHRY_PC;
         ModelHry.novaHra();
     }
     
@@ -262,7 +263,7 @@ public class Sit {
             is.close();
             os.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         try {
             if (ModelHry.typPripojeni == ModelHry.TYPPRIPOJENI_ZAKLADA) {

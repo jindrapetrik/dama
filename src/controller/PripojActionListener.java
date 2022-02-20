@@ -11,9 +11,20 @@ import view.*;
  */
 public class PripojActionListener implements ActionListener {
 
+    private int port=0;
+    
+    private class pripojovaciVlakno extends Thread
+    {
+        @Override
+        public void run()
+        {
+            Sit.pripojitSeKeHre(PripojFrame.txfAdresa.getText(),port);
+        }
+    }
+    
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == view.PripojFrame.btnOK) {
-            int port=0;
+            
             try
             {
                 port=Integer.parseInt(PripojFrame.txfPort.getText());
@@ -22,9 +33,8 @@ public class PripojActionListener implements ActionListener {
                 return;
             }
                     
-            view.View.pripojFrame.setVisible(false);
-            Sit.pripojitSeKeHre(PripojFrame.txfAdresa.getText(),port);
-            View.pripojFrame.setVisible(false);
+            view.View.pripojFrame.setVisible(false);            
+            (new pripojovaciVlakno()).start();
             
         }
 

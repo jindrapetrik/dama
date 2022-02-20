@@ -11,9 +11,9 @@ import javax.swing.BoxLayout;
  */
 public class UvodniFrame extends Frame {
     
-    public static Button btnZalozit=new Button("Založit hru");
-    public static Button btnPripojit=new Button("Připojit se ke hře");
-    public static Button btnSam=new Button("Sám se sebou");
+    public static Button btnZalozit=new Button("Založit síťovou hru");
+    public static Button btnPripojit=new Button("Připojit se k síťové hře");
+    public static Button btnSam=new Button("Hrát Proti PC");
     public static Button btnUkoncit=new Button("Ukončit");
     public static DamaCanvas canObrazek=new DamaCanvas();
     
@@ -34,7 +34,7 @@ public class UvodniFrame extends Frame {
             g.drawOval(110, 90, 10,10);
             g.drawOval(150, 90, 10,10);
             g.setFont(new Font(Font.SERIF,Font.BOLD,40));
-            g.drawString("Síťová dáma", 40, 40);
+            g.drawString("Dáma", 90, 40);
         }
     }
     
@@ -44,16 +44,16 @@ public class UvodniFrame extends Frame {
         
         canObrazek.setSize(0, 200);
         this.add(canObrazek);
-        this.add(btnZalozit);
-        this.add(btnPripojit);
         this.add(btnSam);
+        this.add(btnZalozit);
+        this.add(btnPripojit);        
         this.add(btnUkoncit);
         this.setSize(300,325);
         
         Dimension dimScreen=java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dimScreen.width/2-this.getWidth()/2, dimScreen.height/2-this.getHeight()/2);
         this.setResizable(false);
-        this.setTitle("Dáma v1.0");
+        this.setTitle("Dáma v1.1");
         btnZalozit.addActionListener(controller.UvodniActionListener.instance);
         btnPripojit.addActionListener(controller.UvodniActionListener.instance);
         btnSam.addActionListener(controller.UvodniActionListener.instance);

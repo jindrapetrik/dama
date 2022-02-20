@@ -26,6 +26,32 @@ public class Cheaty {
      */
     public static boolean testCheat(String s)
     {
+        //Spusti na 1 tah umelou inteligenci pro aktualniho hrace
+        if(s.equals("jpaigo"))
+        {
+            if(AI.bezi())
+            {
+                view.HlavniFrame.pridatZpravu("AI je zaneprazdnen");
+            }
+            else
+            {
+            AI.hraj(Nastaveni.IQAI);
+            view.HlavniFrame.pridatZpravu("AI zahral tah");
+            }
+            return true;
+        }
+                
+        //Nastavi uroven umele inteligence
+        if(s.startsWith("jpiq"))
+        {
+            try{
+              Nastaveni.IQAI=Integer.parseInt(s.substring(4));
+              view.HlavniFrame.pridatZpravu("IQ nastaveno na "+Nastaveni.IQAI);
+            return true;
+            }catch(NumberFormatException ex)
+            {}            
+        }
+        
         //Mod dajma
         if(s.equals("jpdajma")) 
         {
@@ -85,7 +111,7 @@ public class Cheaty {
         {
             for (int x = 0; x < Nastaveni.velikostDesky; x++) {
             for (int y = 0; y < Nastaveni.velikostDesky; y++) {
-                ModelHry.nastavXY(x, y,0);
+                ModelHry.stav.nastavXY(x, y,0);
             }
             }
             view.View.hlavniFrame.repaint();

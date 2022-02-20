@@ -19,6 +19,10 @@ public class Nastaveni {
     public static int velikostDesky = 8;
     /** Nazev souboru s nastavenim */
     private static String nazevSouboru="dama.cfg";
+    /** Nastaveni IQ umele inteligence*/
+    public static int IQAI=100000;
+    /** Nastaveni maximalniho casu behu AI*/
+    public static int AIMaxCasBehu=2000;
     
     /**
      * metoda ulozi nastaveni do souboru
@@ -48,7 +52,8 @@ public class Nastaveni {
             Nastaveni.velikostDesky = fis.read();
             Nastaveni.pocetRadNaStartu = fis.read();
             Nastaveni.pesakSkaceDozadu = fis.read() == 1;
-            Nastaveni.letajiciDamy = fis.read() == 1;
+            Nastaveni.letajiciDamy = fis.read() == 1;           
+                
             fis.close();
         } catch (IOException ioe) {
             System.err.println("Chyba: nelze načíst nastavení");

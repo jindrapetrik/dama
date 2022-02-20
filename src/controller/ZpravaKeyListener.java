@@ -10,11 +10,17 @@ import model.*;
  * @author petrij2
  */
 public class ZpravaKeyListener extends KeyAdapter {
-
+    private String posledniText="";
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+        int key=e.getKeyCode();
+        if(key==KeyEvent.VK_UP)
+        {
+            HlavniFrame.txfZprava.setText(posledniText);
+        }
+        if (key == KeyEvent.VK_ENTER) {
             String text = HlavniFrame.txfZprava.getText();
+            posledniText=text;
             if(text.equals("")) return;
             String vypsat=text;
             if(ModelHry.typHry==ModelHry.TYPHRY_SITOVA)

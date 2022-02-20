@@ -2,7 +2,7 @@ package model;
 
 /** Tato trida obaluje souradnice X a Y
  *
- * @author JPEXS
+ * @author petrij2
  */
 public class XY
     {
@@ -41,13 +41,9 @@ public class XY
             return (this.x==x)&&(this.y==y);
         }
          
-        
-        /**
-         * zjistuje, zda jsou soradnice obyvatelne (tmave pole)
-         * @return true pokud je pole tmave
-         */
-        public boolean jeObyvatelne()
+    @Override
+        public String toString()
         {
-            return ModelHry.jeObyvatelneXY(x,y);
+            return "("+x+","+y+")";
         }
     }

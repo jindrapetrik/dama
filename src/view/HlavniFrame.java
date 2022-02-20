@@ -59,6 +59,10 @@ public class HlavniFrame extends Frame {
         lstZpravy.makeVisible(lstZpravy.getItemCount()-1);
     }
     
+    @Override
+    public void update(Graphics g) {
+        paint(g);
+    }
     /**
      * Vykresleni policek     
      */
@@ -85,8 +89,8 @@ public class HlavniFrame extends Frame {
                     g.setColor(View.BARVA_TMAVA);
                 }
 
-                if (ModelHry.ziskejXY(x, y) == ModelHry.OZNACENE_POLE) {
-                    if(ModelHry.typyHracu[ModelHry.hracNaTahu]==ModelHry.TYPHRACE_SITOVY)
+                if (ModelHry.stav.ziskejXY(x, y) == ModelHry.OZNACENE_POLE) {
+                    if((ModelHry.typyHracu[ModelHry.stav.hracNaTahu]==ModelHry.TYPHRACE_SITOVY)||(ModelHry.typyHracu[ModelHry.stav.hracNaTahu]==ModelHry.TYPHRACE_PC))
                      g.setColor(View.BARVA_OZNACENEHO_CIZIHO);   
                     else
                      g.setColor(View.BARVA_OZNACENEHO);
@@ -94,16 +98,16 @@ public class HlavniFrame extends Frame {
                 if(ModelHry.vybranePole!=null)
                 if (ModelHry.vybranePole.x == x) {
                     if (ModelHry.vybranePole.y == y) {
-                        if(ModelHry.typyHracu[ModelHry.hracNaTahu]==ModelHry.TYPHRACE_SITOVY)
+                        if((ModelHry.typyHracu[ModelHry.stav.hracNaTahu]==ModelHry.TYPHRACE_SITOVY)||(ModelHry.typyHracu[ModelHry.stav.hracNaTahu]==ModelHry.TYPHRACE_PC))
                           g.setColor(View.BARVA_VYBRANE_CIZI);   
                         else
                           g.setColor(View.BARVA_VYBRANE);
                     }
                 }
                 g.fillRect(View.X_DESKY + kx * View.SIRKA_POLICKA, View.Y_DESKY + ky * View.VYSKA_POLICKA, View.SIRKA_POLICKA, View.VYSKA_POLICKA);
-                int kamen = ModelHry.typKameneXY(x, y);
+                int kamen = ModelHry.stav.typKameneXY(x, y);
                 if (kamen > 0) {
-                    g.setColor(View.BARVY_HRACU[ModelHry.vlastnikXY(x, y)]);
+                    g.setColor(View.BARVY_HRACU[ModelHry.stav.vlastnikXY(x, y)]);
                     g.fillOval(View.X_DESKY + kx * View.SIRKA_POLICKA + View.SIRKA_POLICKA / 2 - View.PRUMER_KAMENU / 2, View.Y_DESKY + ky * View.VYSKA_POLICKA + View.VYSKA_POLICKA / 2 - View.PRUMER_KAMENU / 2, View.PRUMER_KAMENU, View.PRUMER_KAMENU);
                     g.setColor(View.BARVA_KRUZNICE);
                     g.drawOval(View.X_DESKY + kx * View.SIRKA_POLICKA + View.SIRKA_POLICKA / 2 - View.PRUMER_KAMENU / 2, View.Y_DESKY + ky * View.VYSKA_POLICKA + View.VYSKA_POLICKA / 2 - View.PRUMER_KAMENU / 2, View.PRUMER_KAMENU, View.PRUMER_KAMENU);

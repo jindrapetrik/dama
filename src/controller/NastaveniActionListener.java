@@ -10,6 +10,17 @@ import view.*;
  */
 public class NastaveniActionListener implements ActionListener {
 
+    
+    private class ZalozVlakno extends Thread
+    {
+        @Override
+        public void run()
+        {
+            Sit.zalozitHru(Integer.parseInt(ZalozFrame.txfPort.getText()));
+        }
+    }
+    
+    
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == view.NastaveniFrame.btnOK) {            
             Nastaveni.letajiciDamy=NastaveniFrame.chkLetajiciDamy.getState();
@@ -18,12 +29,13 @@ public class NastaveniActionListener implements ActionListener {
             Nastaveni.pocetRadNaStartu=2+NastaveniFrame.choPocetRad.getSelectedIndex();
             View.nastaveniFrame.setVisible(false); 
             if(ModelHry.typHry==ModelHry.TYPHRY_SITOVA)
-            {                                
-                Sit.zalozitHru(Integer.parseInt(ZalozFrame.txfPort.getText()));
+            {    
+                view.View.cekaciFrame.setVisible(true);
+                (new ZalozVlakno()).start();
             }
             else
             {
-                Sit.samSeSebou();
+                Sit.protiPC();
             }                                   
         }
 
