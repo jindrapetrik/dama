@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>.\dist\Dama.jar</jar>
+  <outfile>.\dist\Dama.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>.\zdroje\Dama.ico</icon>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>8</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.1.0.0</fileVersion>
+    <txtFileVersion>1.1.0.0</txtFileVersion>
+    <fileDescription>Dáma</fileDescription>
+    <copyright>JPEXS 2008</copyright>
+    <productVersion>1.1.0.0</productVersion>
+    <txtProductVersion>1.1.0.0</txtProductVersion>
+    <productName>Dáma</productName>
+    <companyName>JPEXS</companyName>
+    <internalName>Dáma</internalName>
+    <originalFilename>Dama.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>CZECH</language>
+  </versionInfo>
+  <messages>
+    <startupErr>Nastala chyba při spouštění aplikace.</startupErr>
+    <bundledJreErr>Tato aplikace vyžaduje Java Runtime Environment.</bundledJreErr>
+    <jreVersionErr>Tato aplikace vyžaduje Java Runtime Environment</jreVersionErr>
+    <launcherErr>Registr odkazuje na neexistující instalaci Java Runtime Environment nebo je runtime poškozený.</launcherErr>
+    <instanceAlreadyExistsMsg>Aplikace již běží.</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>
