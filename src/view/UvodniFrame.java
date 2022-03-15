@@ -53,7 +53,7 @@ public class UvodniFrame extends Frame {
         Dimension dimScreen=java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dimScreen.width/2-this.getWidth()/2, dimScreen.height/2-this.getHeight()/2);
         this.setResizable(false);
-        this.setTitle("Dáma v1.1");
+        this.setTitle("Dáma v1.2");
         btnZalozit.addActionListener(controller.UvodniActionListener.instance);
         btnPripojit.addActionListener(controller.UvodniActionListener.instance);
         btnSam.addActionListener(controller.UvodniActionListener.instance);
